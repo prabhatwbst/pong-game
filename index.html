@@ -7,26 +7,64 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🎮 Pong Game</h1>
-        <div class="scoreboard">
-            <div class="score-box">
-                <h2>Player (Left)</h2>
-                <p id="player1Score">0</p>
+    <!-- Landing Page -->
+    <div id="landingPage" class="landing-page active">
+        <div class="landing-content">
+            <h1 class="game-title">🎮 PONG</h1>
+            <p class="game-subtitle">Classic Pong Game</p>
+            <div class="game-description">
+                <p>Play against the computer AI</p>
+                <p>First to score wins!</p>
             </div>
-            <div class="score-box">
-                <h2>Computer (Right)</h2>
-                <p id="player2Score">0</p>
+            <button class="start-btn" onclick="startGame()">START GAME</button>
+            <div class="features">
+                <h3>How to Play:</h3>
+                <div class="feature-list">
+                    <div class="feature">
+                        <span class="feature-icon">🖱️</span>
+                        <p>Mouse: Move paddle</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⬆️⬇️</span>
+                        <p>Arrow Keys: Move paddle</p>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">📱</span>
+                        <p>Touch: Swipe up/down</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <canvas id="pongCanvas" width="800" height="400"></canvas>
-        <div class="instructions">
-            <p><strong>Controls:</strong></p>
-            <p>🖱️ Mouse: Move paddle up/down</p>
-            <p>⬆️⬇️ Arrow Keys: Move paddle up/down</p>
-            <p>SPACEBAR: Start/Reset Game</p>
         </div>
     </div>
+
+    <!-- Game Page -->
+    <div id="gamePage" class="game-page">
+        <div class="game-header">
+            <button class="back-btn" onclick="goToLanding()">← Back</button>
+            <h2>PONG GAME</h2>
+            <div class="scoreboard">
+                <div class="score-box player">
+                    <p class="score-label">YOU</p>
+                    <p class="score-value" id="player1Score">0</p>
+                </div>
+                <div class="score-box computer">
+                    <p class="score-label">COMPUTER</p>
+                    <p class="score-value" id="player2Score">0</p>
+                </div>
+            </div>
+        </div>
+        <div class="game-container">
+            <canvas id="pongCanvas"></canvas>
+            <div class="mobile-controls" id="mobileControls">
+                <button class="control-btn up-btn" id="upBtn">▲</button>
+                <button class="control-btn down-btn" id="downBtn">▼</button>
+            </div>
+        </div>
+        <div class="game-instructions">
+            <p id="gameStatus">Game Started! Press SPACEBAR to pause/resume</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
